@@ -1,47 +1,68 @@
 <template>
-  <h1>ورود</h1>
-
   <div class="wrapper fadeInDown">
     <div id="formContent">
       <!-- Tabs Titles -->
-
+      <h3 style="margin-top: 50px">درخواست کد ورود</h3>
       <!-- Icon -->
-      <div class="fadeIn first">
-        <img
-          src="http://danielzawadzki.com/codepen/01/icon.svg"
-          id="icon"
-          alt="User Icon"
-        />
 
-        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-window-fullscreen" viewBox="0 0 16 16">
-  <path d="M3 3.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm1.5 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm1 .5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z"/>
-  <path d="M.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5H.5ZM1 5V2h14v3H1Zm0 1h14v8H1V6Z"/>
-</svg>
-      </div>
-
-      <!-- Login Form -->
+      <!-- 
       <form>
-        <input
-          type="text"
-          id="login"
-          class="fadeIn second"
-          name="login"
-          placeholder="login"
-        />
-        <input
-          type="text"
-          id="password"
-          class="fadeIn third"
-          name="login"
-          placeholder="password"
-        />
-        <input type="submit" class="fadeIn fourth" value="Log In" />
-      </form>
+        <div class="container">
+          <div class="row">
+            <div class="col-2"/>
+            <div class="input-group input-group-lg col-8">
+              <input
+                type="text"
+                class="form-control fadeIn second"
+                aria-label="Large"
+                placeholder="شماره خود را وارد کنید"
+                aria-describedby="inputGroup-sizing-sm"
+                maxlength="10"
+              />
+              <div class="input-group-prepend">
+                <span class="input-group-text fadeIn second" id="inputGroup-sizing-lg" style="-webkit-border-radius: 5px 5px 5px 5px !important; border-radius:"
+                  >98+</span
+                >
+              </div>
+            </div>
+             <div class="col-2"/>
+          </div>
+        </div>
 
+        <input type="submit" class="fadeIn fourth" />
+      </form>Login Form -->
+      <form class="content-form">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Enter email"
+          />
+          <small id="emailHelp" class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            placeholder="Password"
+          />
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1"
+            >Check me out</label
+          >
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
       <!-- Remind Passowrd -->
-      <div id="formFooter">
-        <a class="underlineHover" href="#">Forgot Password?</a>
-      </div>
     </div>
   </div>
 </template>
@@ -54,14 +75,13 @@ export default {
 
 <style>
 /* BASIC */
-
+/*
 html {
   background-color: #56baed;
-  
 }
 
 body {
- font-family: "Tanha" !important;
+  font-family: "Tanha" !important;
   height: 100vh;
 }
 
@@ -82,7 +102,7 @@ h2 {
   color: #cccccc;
 }
 
-/* STRUCTURE */
+
 
 .wrapper {
   display: flex;
@@ -91,7 +111,7 @@ h2 {
   justify-content: center;
   width: 100%;
   min-height: 100%;
-  padding: 20px;
+  padding: 200px;
 }
 
 #formContent {
@@ -100,11 +120,11 @@ h2 {
   background: #fff;
   padding: 30px;
   width: 90%;
-  max-width: 450px;
+  max-width: 650px;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 50px 120px 10px rgba(0, 0, 0, 0.3);
   text-align: center;
 }
 
@@ -117,7 +137,7 @@ h2 {
   border-radius: 0 0 10px 10px;
 }
 
-/* TABS */
+
 
 h2.inactive {
   color: #cccccc;
@@ -128,7 +148,7 @@ h2.active {
   border-bottom: 2px solid #5fbae9;
 }
 
-/* FORM TYPOGRAPHY*/
+
 
 input[type="button"],
 input[type="submit"],
@@ -175,10 +195,10 @@ input[type="text"] {
   border: none;
   color: #0d0d0d;
   padding: 15px 32px;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 5px;
   margin: 5px;
   width: 85%;
   border: 2px solid #f6f6f6;
@@ -201,7 +221,19 @@ input[type="text"]:placeholder {
 }
 
 /* ANIMATIONS */
-
+#formContent {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 650px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 50px 120px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
 /* Simple CSS3 Fade-in-down Animation */
 .fadeInDown {
   -webkit-animation-name: fadeInDown;
