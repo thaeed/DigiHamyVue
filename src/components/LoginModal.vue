@@ -1,6 +1,6 @@
 <template>
-  <div class="row justify-content-center">
-    <div class="wrapper fadeInDown">
+  <div class="container fixed-top" style="margin-top: 10vh">
+    <div class="row justify-content-center">
       <div id="formContent">
         <!-- Tabs Titles -->
 
@@ -53,7 +53,11 @@
             <div class="row">
               <div class="container">
                 <div class="col">
-                  <div v-if="showError" class="alert alert-danger" role="alert">
+                  <div
+                    v-if="timerEnabled"
+                    class="alert alert-danger"
+                    role="alert"
+                  >
                     شماره وارد شده نامعتبر است.
                   </div>
                 </div>
@@ -65,9 +69,16 @@
                   name="btnRequestCode"
                   type="button"
                   class="btn --digiGreen btn-block"
+                  
                   @click="requestCode"
                 >
                   {{ btnMessage }}
+                  <div
+                    v-if="showError"
+                    class="spinner-border spinner-border-sm"
+                    role="status"
+                    style="margin-bottom: 5px"
+                  ></div>
                 </button>
               </div>
 
@@ -142,7 +153,7 @@ export default {
         return true;
       }
     },
-    requestCode() {
+    requestCode: async function () {
       if (this.timerEnabled == false) {
         this.showError = false;
         this.showSuccess = false;
@@ -156,7 +167,7 @@ export default {
 
         this.timerEnabled = true;
 
-        axios
+        await axios
           .get(
             "https://api.digi-hamy.ir/user/requestcode/" + "09" + this.txtPhone,
             {
@@ -167,11 +178,14 @@ export default {
           )
           .then((res) => {
             this.apiResponse = res.data;
+            console.log(this.apiResponse["status"]);
           });
 
-        console.log(this.apiResponse);
-        if(this.apiResponse['status'] == true)
-        this.showSuccess = true;
+        if (this.apiResponse["status"] == true) this.showSuccess = true;
+        else {
+          this.timerCount =
+            90 - parseInt(this.apiResponse["reason"].replace("Time :", ""));
+        }
       }
     },
   },
@@ -188,21 +202,11 @@ export default {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
   background: #fff;
-  width: 90%;
   max-width: 550px;
-  position: relative;
+
   padding: 20px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   text-align: center;
-}
-
-#formFooter {
-  background-color: #f6f6f6;
-  border-top: 1px solid #dce8f1;
-  padding: 25px;
-  text-align: center;
-  -webkit-border-radius: 0 0 10px 10px;
-  border-radius: 0 0 10px 10px;
 }
 </style>

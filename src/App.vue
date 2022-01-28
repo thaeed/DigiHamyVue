@@ -16,14 +16,22 @@ import Modal from "./components/LoginModal.vue";
     url("./assets/fonts/Tanha/Tanha-FD-WOL.eot") format("eot");
 }
 body {
- /* background-size: 10px;
+  /* background-size: 10px;
   background-image: url("./assets/bg.png");
   background-repeat: repeat;*/
 
   background-color: #264653;
-opacity: 0.8;
-background-image: radial-gradient(circle at center center, #F1FAEE, #264653), repeating-radial-gradient(circle at center center, #F1FAEE, #F1FAEE, 18px, transparent 36px, transparent 18px);
-background-blend-mode:darken;
+  opacity: 0.8;
+  background-image: radial-gradient(circle at center center, #f1faee, #264653),
+    repeating-radial-gradient(
+      circle at center center,
+      #f1faee,
+      #f1faee,
+      18px,
+      transparent 36px,
+      transparent 18px
+    );
+  background-blend-mode: darken;
 }
 
 #app {
@@ -34,30 +42,26 @@ background-blend-mode:darken;
 
 .--digiOrange {
   background-color: #e76a4b;
-  color : #F1FAEE;
+  color: #f1faee;
 }
 .--digiBrown {
-  background-color: #F4A261;
+  background-color: #f4a261;
 }
 .--digiYellow {
-  background-color: #E9C46A;
+  background-color: #e9c46a;
 }
 .--digiGreen {
-  background-color: #2A9D8F;
-  color : #F1FAEE;
+  background-color: #2a9d8f;
+  color: #f1faee;
 }
 
 .--digiDark {
   background-color: #264653;
-  color : #F1FAEE;
-  
+  color: #f1faee;
 }
 
-.--digiDark:hover{
-  color : #F1FAEE;
-   text-shadow: 1px 0px #F1FAEE;
+.--digiDark:hover {
+  color: #f1faee;
+  text-shadow: 1px 0px #f1faee;
 }
-
-
-
 </style>
