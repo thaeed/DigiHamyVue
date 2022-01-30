@@ -1,16 +1,22 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Login from "../views/Login.vue";
+import Categories from "../views/Categories.vue";
 import Main from "../views/Main.vue";
+import NotFound from "../views/NotFound.vue";
 const routes = [
   {
-    path: "/login",
-    name: "Login",
-    component: Login,
+    path: "/",
+    name: "Categories",
+    component: Categories,
+    children: [
+      { path: "/main", name: "Main", component: Main },
+      { path: "/categories/:id", name: "Categories", component: Categories },
+    ],
   },
+
   {
-    path: "/main",
-    name: "Main",
-    component: Main,
+    path: "/404",
+    name: "404",
+    component: NotFound,
   },
 ];
 const router = createRouter({

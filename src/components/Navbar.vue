@@ -1,4 +1,5 @@
 <template>
+
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <img src="../assets/logo.png" class="rounded" width="50" height="50" />
     <a class="navbar-brand" href="/main">دیجی حامی</a>
@@ -17,8 +18,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">
-         دوره ها   <span class="sr-only">(current)</span></a
+          <a class="nav-link" href="/">
+            دوره ها <span class="sr-only">(current)</span></a
           >
         </li>
         <li class="nav-item">
@@ -60,17 +61,40 @@
           placeholder="Search"
           aria-label="Search"
         />
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        <button type="button" class="btn btn-outline-success my-2 my-sm-0" @click="showModal">
           Search
         </button>
       </form>
     </div>
   </nav>
+  <router-view></router-view>
+
+
+  
+
+  <Modal v-show="isModalVisible" @close="closeModal" />
 </template>
 
 <script>
+import Modal from "./LoginModal.vue";
 export default {
   name: "Navbar",
+  components: {
+    Modal,
+  },
+  data() {
+    return {
+      isModalVisible: false,
+    };
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    },
+  },
 };
 </script>
 
